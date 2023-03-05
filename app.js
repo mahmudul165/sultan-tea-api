@@ -7,6 +7,7 @@ const galleryRouter = require("./routes/v1/gallery.route");
 const productRouter = require("./routes/v1/product.route");
 const carrierRouter = require("./routes/v1/carrier.route");
 const businessRouter = require("./routes/v1/business.route");
+const slideRouter = require("./routes/v1/slide.route");
 const app = express();
 
 app.use(cors());
@@ -17,6 +18,7 @@ app.use("/api/v1/gallery", galleryRouter);
 app.use("/api/v1/product", productRouter);
 app.use("/api/v1/carrier", carrierRouter);
 app.use("/api/v1/business", businessRouter);
+app.use("/api/v1/slide", slideRouter);
 // api/users/ : POST
 // api/users : GET
 // api/users/:id : GET
