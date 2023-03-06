@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const authMiddleware = require('../../middleware/authMiddleware');
 const {
   getJobPostings,
  createJobPosting,
@@ -9,10 +9,10 @@ const {
   updateJobPosting,
 } = require("../../controllers/carrier.controller");
 
-router.get("/", getJobPostings);
+router.get("/",   getJobPostings);
 router.get("/:id", getJobPostingById);
-router.delete("/:id", deleteJobPosting);
-router.patch("/:id", updateJobPosting);
-router.post("/",createJobPosting);
+router.delete("/:id",authMiddleware,deleteJobPosting);
+router.patch("/:id", authMiddleware,updateJobPosting);
+router.post("/", authMiddleware, createJobPosting);
 
 module.exports = router;
